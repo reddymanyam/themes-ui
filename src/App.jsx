@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { getDesignTokens } from "./Themes";
 import Home from "./Home";
+import About from "./About"
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -18,6 +19,7 @@ function App() {
       <div style={{ padding: '20px' }}>
         <button onClick={toggleTheme}>Toggle Theme</button>
         <Home />
+        <About />
       </div>
     </ThemeProvider>
   );
