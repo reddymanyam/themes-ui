@@ -1,49 +1,57 @@
-import { createTheme } from "@mui/material";
-import { green, purple, red } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
-      palette:{
-        primary:{
-            main: green[900],
-            light: "#010100",
-            dark: "#FDFEFB",
+export const getDesignTokens = (mode) => {
+  return createTheme({
+    palette: {
+      mode,
+      ...(mode === "light"
+        ? {
+            primary: {
+              main: '#1976d2',
+            },
+            background: {
+              default: '#f5f5f5',
+              paper: '#ffffff',
+            },
+          }
+        : {
+            primary: {
+              main: '#90caf9',
+            },
+            background: {
+              default: '#121212',
+              paper: '#1e1e1e',
+            },
+          }),
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: '20px',
+            ...(mode === "light" && {
+              backgroundColor: '#1976d2',
+              color: '#ffffff',
+            }),
+            ...(mode === "dark" && {
+              backgroundColor: '#90caf9',
+              color: '#000000',
+            }),
+          },
         },
-        secondary:{
-            main: red[900],
-            light: "#010100",
-            dark: "#FDFEFB",
-        },
-        success:{
-            main: purple[800],
-            light: "#010100",
-            dark: "#FDFEFB",
-        }
       },
-      components:{
-        MuiButton:{
-            styleOverrides:{
-                root:{
-                    borderRadius:'20px',
-                    light:{
-                        borderRadius:"15px"
-                    },
-                    dark:{
-                        borderRadius:"15px"
-                    }
-                }
-            }
+      MuiIcon: {
+        styleOverrides: {
+          root: {
+            ...(mode === "light" && {
+              color: '#1976d2',
+            }),
+            ...(mode === "dark" && {
+              color: '#90caf9',
+            }),
+          },
         },
-        MuiIcon:{
-            styleOverrides:{
-               root:({owenerstate}) =>({
-                ...createTheme(owenerstate.size === "large" && {
-                    width:"60px",
-                    height:"60px",
-                })
-               })
-            }
-        }
-      }
-
-})
-export default theme;
+      },
+    },
+  });
+};
