@@ -32,10 +32,12 @@ export const getDesignTokens = (mode) => {
             ...(mode === "light" && {
               backgroundColor: '#1976d2',
               color: '#ffffff',
+              
             }),
             ...(mode === "dark" && {
               backgroundColor: '#90caf9',
               color: '#000000',
+              
             }),
           },
         },

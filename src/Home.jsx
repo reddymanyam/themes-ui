@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 import React from 'react'
 import AccessAlarmOutlinedIcon from '@mui/icons-material/AccessAlarmOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -16,7 +16,7 @@ function HomeIcon(props) {
 
 const Home = () => {
     return (
-        <>
+        <Box sx={{width:"100%", pl:25}}>
             <Typography variant='h5' component="h2"> Welcome to themes...!</Typography>
             <Typography variant='h5' component="h2"> Welcome to themes...!</Typography>
             <Typography variant='h5' component="h2"> Welcome to themes...!</Typography>
@@ -26,7 +26,7 @@ const Home = () => {
             <Button variant="contained" disableRipple>
                 No Ripple Button
             </Button>
-            <Stack display={'flex'} flexDirection="row" justifyContent="space-between">
+            <Stack display="flex" flexDirection="row" justifyContent="space-evenly">
                 <AcUnitOutlinedIcon />
                 <AccessAlarmOutlinedIcon sx={{ color: "error", size: "large" }} />
                 <AddReactionOutlinedIcon />
@@ -38,7 +38,7 @@ const Home = () => {
                 <HomeIcon sx={{ fontSize: 40 }} />
             </Stack>
 
-        </>
+        </Box>
     )
 }
 
